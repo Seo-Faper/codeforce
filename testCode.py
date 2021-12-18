@@ -1,2 +1,13 @@
-for i in range(10):
-    print(i)
+from queue import PriorityQueue
+
+que = PriorityQueue()
+
+que.put(4)
+que.put(1)
+que.put(2)
+que.put(3)
+
+print(que.get())
+print(que.get())
+print(que.get())
+print(que.get())
