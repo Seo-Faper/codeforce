@@ -1,13 +1,4 @@
-from queue import PriorityQueue
+items = [1,2,3,4]
+from itertools import permutations
 
-que = PriorityQueue()
-
-que.put(4)
-que.put(1)
-que.put(2)
-que.put(3)
-
-print(que.get())
-print(que.get())
-print(que.get())
-print(que.get())
+print(list(permutations(items, 4)))
