@@ -1,6 +1,15 @@
-N,L = map(int,input().split())
-# 합이 N이면서, 길이가 적어도 L인 가장 짧은 연속된 음이 아닌 정수 리스트
-# ex) 18,2 -> [5,6,7]
-#     18,4 -> [3,4,5,6]
-
-
+n, l = map(int, input().split())
+t = 0
+x = -1
+iter = 0
+for i in range(l, 101):
+    t = (i * i - i) / 2
+    if (n - t) % i == 0 and (n - t) // i >= 0:
+        x = (n - t) // i
+        iter = i
+        break
+if x == -1:
+    print(-1)
+else:
+    for i in range(iter):
+        print(int(x + i))
