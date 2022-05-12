@@ -1,43 +1,33 @@
-import itertools
-#  itertools.combinations(k[1:],6)
+from itertools import combinations
 
-def permutations(iterable, r=None):
-    # permutations('ABCD', 2) --> AB AC AD BA BC BD CA CB CD DA DB DC
-    # permutations(range(3)) --> 012 021 102 120 201 210
-    pool = tuple(iterable)
-    n = len(pool)
-    r = n if r is None else r
-    if r > n:
-        return
-    indices = list(range(n))
-    cycles = list(range(n, n-r, -1))
-    yield tuple(pool[i] for i in indices[:r])
-    while n:
-        print(cycles)
-        for i in reversed(range(r)):
-            cycles[i] -= 1
-            if cycles[i] == 0:
+l,c = map(int,input().split()) # l : 암호길이(1모음, 2 자음)  c: 사용한 알파벳 갯수(이중 ㅣ개를 조합)
+word = sorted(list(map(str,input().split())))  #오름차순으로 정렬
 
-                indices[i:] = indices[i+1:] + indices[i:i+1]
+m = ['a','e','i','o','u']
 
-                cycles[i] = n - i
-            else:
-                j = cycles[i]
-                indices[i], indices[-j] = indices[-j], indices[i]
-                yield tuple(pool[i] for i in indices[:r])
-                break
+
+def cnt(password):  #튜플을 인자로 받음, 모음 자음 갯수를 원소로 하는 리스트 반환
+    result = []
+    mm = 0  # 모음 갯수
+    zz = 0  # 자음 갯수
+    for i in range(l):
+        if password[i] in m:
+            mm += 1
         else:
-            return
+            zz += 1
+    result.append(mm)
+    result.append(zz)
+    return result
 
-L,C = map(int, input().split())
-k = input().split()
-for i in permutations(k, L):
-    i2 = sorted(i)
+example = list(combinations(word,l))  # 모든 경우
 
-    if i2 == list(i):
-        for j in i: 
-            print(j,end='')
-        print()
+final = [] # 모든 경우를 cnt함수에 넣은 결과가 들어간 리스트
+for i in range(len(example)):
+    final.append(cnt(example[i]))
 
-# 14 15
-# a b c d e f g h i j k l m n o 
+finals = []  # 모음이 1개이상, 자음이 2개 이상인 조건을 만족하는 경우를 저장하는 리스트
+for i in range(len(final)):
+    if final[i][0] >= 1 and final[i][1] >= 2:
+        finals.append(list(example[i]))  # 튜플을 리스트로 변경
+for i in range(len(finals)):
+    print("".join(finals[i]))
