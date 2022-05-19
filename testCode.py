@@ -1,2 +1,1 @@
-S = "abcde"
-print(S[0:5])
+print(3%2)
