@@ -37,8 +37,38 @@ min ≤ max ≤ min + 1,000,000
 
 1. max에 루트를 씌워서 최소 제곱 수를 찾는다
 max = 10 이면 3이 최대 제곱 부모니까 [4,9] 까지만 가진다.
-math.sqrt(max)//1 하면 3.xxx //1 해서 3이 나오는 원리?
+math.sqrt(max)//1 하면 3.xxx //1 해서 3이 나오는 원리? < ㅇㅈ
+
+ex) 1,1000
+
+루트 1000 = 31.xxxx 이므로 31 보다 큰 제곱 수는 36 
+
+[4,9,16,25,36,49,64,81,100,121,] 
+
 
 '''
-
+import math
 a,b= map(int, input().split(" "))
+L = []
+K = []
+flag = True
+start = 0
+for i in range(a,b+1):
+    L.append(i)
+    if i != 1 and flag and round(math.sqrt(i)) == math.sqrt(i):
+        start = int(math.sqrt(i))
+        flag = False
+
+R = [True]*(b-a+1)
+
+ans = 0
+for i in range(start,int(math.sqrt(b)//1)+1):
+    k = i*i
+    if i > 3 and R[b+1-k]:
+        for j in range(k,b-a+2,k):
+            R[j] = False
+            
+
+for i in R:
+    if i : ans+=1
+print(ans)
