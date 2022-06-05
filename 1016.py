@@ -9,20 +9,20 @@ min ≤ max ≤ min + 1,000,000
 '''
 import math
 a,b= map(int, input().split(" "))
-L = []
+ans = b-a+1
+A = [False] * (b-a+1)
+i = 2
+while i*i < b:
 
-for i in range(a,b+1):
-    L.append(i)
+  sn = i*i
+  remain = 0 if a%sn==0 else 1
+  j = a//sn + remain
 
-n = int(math.sqrt(L[len(L)-1]))
+  while sn*j <=b:
+    if not A[sn*j-a]:
+      A[sn*j-a] = True
+      ans -=1
+    j+=1
+  i+=1
 
-R = [False,False] + [True]*(n-1)
-primes=[]
-
-for i in range(2,n+1):
-  if R[i]:
-    primes.append(i)
-    for j in range(2*i, n+1, i):
-        R[j] = False
-print(primes)
-print(len(primes))
+print(ans)
