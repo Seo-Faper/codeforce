@@ -1,6 +1,3 @@
-n,k = map(int, input().split())
-S = list(map(int, input()))
-L = []
 '''
 1924 , 2의 경우
 제일 처음 1 입력
@@ -34,5 +31,8 @@ L = []
 
 
 '''
+n,k = map(int, input().split())
+S = list(map(int, input()))
+L = []
 
 L.append(S.pop(0))
