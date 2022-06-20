@@ -27,12 +27,26 @@
 4177252841
 
 
- 
+
+
 
 
 '''
-n,k = map(int, input().split())
-S = list(map(int, input()))
-L = []
 
-L.append(S.pop(0))
+import sys
+N,K = map(int,sys.stdin.readline().split())
+L = list(map(int,sys.stdin.readline().strip()))
+A = []
+D = K
+
+for i in range(N):
+    while D > 0 and A:
+        if A[len(A)-1] < L[i]:
+            A.pop()
+            D-=1
+        else:
+            break
+    A.append(L[i])
+    
+for i in range(N-K):
+    print(A[i],end="")
