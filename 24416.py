@@ -1,9 +1,10 @@
 count = 0
 def fibo(n):
     global count 
-    
+
     if n == 1 or n == 2:
-        count +=1
+        count +=1 
+        count %= 1000000007
         return 1
     else:
         return (fibo(n-1)+fibo(n-2))
