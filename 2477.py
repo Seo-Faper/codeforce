@@ -1,68 +1,31 @@
 '''
 7
-4 50
-2 160
-3 30
-1 60
-3 20
-1 100
-
-1 60
-1 100
-2 160
-3 20
-3 30
-4 50
-
-([1,2] 에서 MAX * [3,4] 에서 MAX - [1,2] 에서 MIN * [3,4] 에서 MIN )* K 
 
 동쪽은 1, 서쪽은 2, 남쪽은 3, 북쪽은 4
 
-          50 
-   + - - - - - - - +
-10 |...............|                    |.|
-   + - - +.........|_ _ _ _ _ _ _ _ _+ - / - +
-      10 |........./..........@/..././       |
-      10 |.........|-----------------+ - - - +
-         + - - - - +
-             40 
-
-4 40
-2 50
-3 10
-1 10
-4 10
-1 40 
-
-
 오른쪽 1, 왼쪽 2, 아래 3, 위 4 
 
-             80
-+--------------------------+
-|                 40       | 10 
-| 20        +--------------+
-|           | 10           
-+-----------+
-    40
-
-4 10
-2 80
+7
+4 50
+2 160
+3 30
+1 60
 3 20
-1 40
-4 10
-1 40
+1 100
 
+
+// 입력
 1
-1 40
+1 1
 4 10
-1 40
-4 10
-2 80
-3 20
+2 10
+3 1
+1 9
+3 9
 
-
-오른쪽 1, 왼쪽 2, 아래 3, 위 4 
-
+// 정답
+19
+ 
 1
 2 50
 3 100
@@ -72,6 +35,36 @@
 4 160
 
 '''
-k = int(input())
+n = int(input())
+Rotate = []
+Value = []
 L = []
+R = []
+for i in range(6):
+   a,b = map(int,input().split())
+   Rotate.append(a)
+   Value.append(b)
+   if a == 1 or a==2: L.append(b)
+   else : R.append(b)
 
+hight = max(R)
+width = max(L)
+#print(hight,width)
+
+ans = []
+
+flag = False # 기본 값 : 높이 부터
+if Rotate[0] == 1 or Rotate[0] == 2:
+   flag = True # 기본 값을 너비 부터로 변경
+
+Value.insert(0,Value[len(Value)-1])
+Value.append(Value[1])
+#print(Value)
+
+for i in range(1,7):
+   if Value[i-1]+Value[i+1]==hight or Value[i-1]+Value[i+1]==width:
+      #print(Value[i])
+      ans.append(Value[i])
+#print(width,hight)
+#print(ans)
+print(n*(width*hight - (ans[0]*ans[1])))
