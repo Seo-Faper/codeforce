@@ -35,36 +35,31 @@
 4 160
 
 '''
+
 n = int(input())
-Rotate = []
+
 Value = []
 L = []
 R = []
 for i in range(6):
    a,b = map(int,input().split())
-   Rotate.append(a)
+
    Value.append(b)
    if a == 1 or a==2: L.append(b)
    else : R.append(b)
 
 hight = max(R)
 width = max(L)
-#print(hight,width)
+
 
 ans = []
 
-flag = False # 기본 값 : 높이 부터
-if Rotate[0] == 1 or Rotate[0] == 2:
-   flag = True # 기본 값을 너비 부터로 변경
-
 Value.insert(0,Value[len(Value)-1])
 Value.append(Value[1])
-#print(Value)
 
 for i in range(1,7):
    if Value[i-1]+Value[i+1]==hight or Value[i-1]+Value[i+1]==width:
-      #print(Value[i])
+
       ans.append(Value[i])
-#print(width,hight)
-#print(ans)
+
 print(n*(width*hight - (ans[0]*ans[1])))
