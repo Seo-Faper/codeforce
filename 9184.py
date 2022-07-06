@@ -20,4 +20,5 @@ while(True):
     a,b,c = map(int,sys.stdin.readline().split())
 
     if (a,b,c) == (-1,-1,-1): break
-    print("w(%d,%d,%d) = %d"% (a,b,c,w(a,b,c)))
+    else:
+        print("w(%d, %d, %d) = %d"% (a,b,c,w(a,b,c)))

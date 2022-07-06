@@ -12,10 +12,11 @@ a,b= map(int, input().split(" "))
 ans = b-a+1
 A = [False] * (b-a+1)
 i = 2
-while i*i < b:
+while i*i <= b:
 
   sn = i*i
-  remain = 0 if a%sn==0 else 1
+  remain = 0 
+  if a%sn!=0: remain = 1
   j = a//sn + remain
 
   while sn*j <=b:
