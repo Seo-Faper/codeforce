@@ -19,9 +19,7 @@ while True:
             stack.append(i)
         elif not stack and i ==')' or i ==']':
             stack.append(i)
-        
-        #print(stack)
-    #ans.append(stack)        
+      
     if stack:
         ans.append("no")
     else:
