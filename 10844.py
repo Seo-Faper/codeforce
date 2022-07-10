@@ -11,4 +11,7 @@ for i in range(2,101):
         else:
             dp[i][j] = (dp[i-1][j-1] + dp[i-1][j+1]) % 1000000000
     
-print(sum(dp[n]) % 1000000000 )
+for i in range(n):
+    for j in range(10):
+        print(dp[i][j],end=' ')
+    print()
