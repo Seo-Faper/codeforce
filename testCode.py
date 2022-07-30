@@ -1,7 +1,4 @@
-s = "ABBBBBBCDEF"
+from colorama import Fore
+from colorama import Style
 
-q = list(s)
-q[0] = ''
-
-s = "".join(q)
-print(s)
+print(f"This is {Fore.GREEN}color{Style.RESET_ALL}!")
