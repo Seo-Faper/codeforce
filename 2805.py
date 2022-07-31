@@ -1,17 +1,17 @@
-import sys
 
 K,N = map(int, input().split())
-L = [int(input()) for _ in range(K)]
+L = list(map(int, input().split()))
 # print(L)
 
 ans = 0
 start = 0
-end = sum(L) // N + 1
+end = 2000000000
 while start <= end:
     mid =  ( start + end ) // 2
     tmp = 0
     for i in L:
-        tmp += i // mid
+       if i > mid:
+           tmp += (i - mid)
     if tmp >= N: 
         ans = mid
         start = mid + 1 
