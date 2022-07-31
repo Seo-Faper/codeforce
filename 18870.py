@@ -7,5 +7,6 @@ r = list(sorted(set(l)))
 
 d = {value: index for index , value in enumerate(r)}
 
+
 for i in l:
     print(d[i],end=' ')
