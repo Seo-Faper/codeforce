@@ -43,19 +43,7 @@
 1 3 5 7 9
 
 '''
-import itertools
 N = int(input())
 L = list(map(int,input().split()))
-L = sorted(L)
-for i in itertools.permutations(L):
-    print(i)
-    flag = True
-    D = list(i)
-    for j in range(N-1):
-        if D[j]+1 == D[j+1]:
+sorted(L)
 
-            flag = False
-            break
-    if flag:
-        print(*i,end=' ')
-        break 
