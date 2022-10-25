@@ -22,3 +22,4 @@ for i in L:
         elif w == 'HHH': ans[7] +=1
             
     print(*ans)
+    #뭔데
