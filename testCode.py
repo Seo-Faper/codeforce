@@ -1,3 +1,5 @@
-L =  [[1,2,3],[4,5,6]]
+import random
+word = ["알!","월!!","아르르","컹","!"]
 
-print(set(L[0]))
+for i in range(1000):
+    print(random.choice(word),end='')
