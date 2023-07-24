@@ -1,5 +1,16 @@
-import random
-word = ["알!","월!!","아르르","컹","!"]
+from collections import deque
 
-for i in range(1000):
-    print(random.choice(word),end='')
+l = deque([1,2,3,4,5])
+print(l.popleft())
+l.rotate(-2)
+print(l)
+
+print(l.popleft())
+l.rotate(3)
+print(l)
+
+print(l.popleft())
+l.rotate(1)
+print(l)
+# 음수면 -붙여서 rotate
+# 양수면 -붙이고 + 1 한다음 rotate?
