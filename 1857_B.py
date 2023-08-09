@@ -20,7 +20,7 @@ def up(P, K):
     return ''.join(P_list)
 
 N = int(input())
-for i in range(N):
+for i in range(N) :
     p = input()
     ans = 0
     f = False
