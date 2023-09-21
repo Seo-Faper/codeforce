@@ -6,4 +6,6 @@ def five_count(n):
         cnt += n
     return cnt
     
+
+    
 print(five_count(n))
