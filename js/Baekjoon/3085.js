@@ -17,12 +17,8 @@ function calc(arr, x,y){
 
 let p = require('fs').readFileSync('/dev/stdin').toString().split('\n');
 const n = parseInt(p[0]);
-let arr = new Array(n);
-for(let i = 0; i<n; i++){
-    p[i+1] = p[i+1].replace('\r','')
-    arr[i] = [...p[i+1]]
-}
-let arrY = Array.from(Array(5), () => Array(2).fill(''))
+let arr = p.slice(1).map(v => v.split(""));
+let arrY = Array.from(Array(n), () => Array(n).fill(''))
 for(let i = 0; i<n; i++){
     for(let j = 0; j<n; j++){
         arrY[i][j] = arr[i][j]
@@ -58,7 +54,7 @@ for(let i = 0; i<n; i++){
     for(let j = 0; j<n-1; j++){
         let tmp = arr[i][j+1]
         arr[i][j+1] = arr[i][j]
-        arr[i][j] = tmp // 인접한 x축을 바꾼 후 계산 
+        arr[i][j] = tmp // 인접한 y축을 바꾼 후 계산 
         for(let x = 0; x < n; x++){
             for(let y = 0; y<n; y++){
                 ans = Math.max(ans,calc(arr,x,y))
