@@ -1,12 +1,14 @@
-hh,mm,ss = map(int,(input().split(':')))
-HH,MM,SS = map(int,(input().split(':')))
-
-now_time=(hh*3600)+(mm*60)+ss
-start_time=(HH*3600)+(MM*60)+SS
-result=start_time-now_time
-remain_hh= result//3600
-remain_hh2=result%3600
-remain_mm=remain_hh2//60
-remain_ss=remain_hh2%60
-
-print(f"{remain_hh:0>2}:{remain_mm:0>2}:{remain_ss:0>2}")
+n=int(input())
+oxquiz=[input() for _ in range(n)]
+score=list(0 for k in range(n))
+for i in range(n):
+    tmp=1
+    for j in range(len(oxquiz[i])-1):
+        if oxquiz[i][j]=="O":
+            score[i] += tmp
+            if oxquiz[i][j+1]=="O":
+                tmp+=1
+            else: tmp=1
+        if j==(len(oxquiz[i])-2) and oxquiz[i][j+1]=="O":
+            score[i] += tmp
+    print(score[i])
