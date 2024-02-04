@@ -1,14 +1,15 @@
-n=int(input())
-oxquiz=[input() for _ in range(n)]
-score=list(0 for k in range(n))
-for i in range(n):
-    tmp=1
-    for j in range(len(oxquiz[i])-1):
-        if oxquiz[i][j]=="O":
-            score[i] += tmp
-            if oxquiz[i][j+1]=="O":
-                tmp+=1
-            else: tmp=1
-        if j==(len(oxquiz[i])-2) and oxquiz[i][j+1]=="O":
-            score[i] += tmp
-    print(score[i])
+
+s = input()
+result = []
+
+for i in range(1,len(s)):
+
+    new_s = s[i:] # 두 번째 뭉탱이 생성
+    a = s[:i][::-1] # 첫번째 뭉탱이를 만들고 뒤집음 
+    for j in range(1,len(new_s)):
+        b = new_s[:j][::-1] 
+        c = new_s[j:][::-1]
+        result.append(a + b + c)
+
+result.sort()
+print(result[0])
