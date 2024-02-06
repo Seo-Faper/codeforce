@@ -4,7 +4,8 @@ l.sort()
 ans = 0
 p = 0
 for i in range(len(l)):
-    if ans < min((M-i),N)*l[i]:
-        ans = min((M-i),N)*l[i]
+    egg = min((M-i),N)*l[i]
+    if ans < egg:
+        ans = egg
         p = l[i]
 print(p,ans)
