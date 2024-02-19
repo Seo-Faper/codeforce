@@ -1,2 +1,1 @@
-s = "ABBAP"
-print(s[-1:])
+print(0 in [0,1,2,3])
