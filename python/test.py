@@ -1,6 +1,11 @@
-<<<<<<< HEAD
-s = "ABBAP"
-print(s[1:])
-=======
-print(0 in [0,1,2,3])
->>>>>>> ad689ff1a2b2709fe6c93001536885f647ceee1b
+a=int(input())
+cow=[input() for _ in range(a)]
+cow.sort()
+print(cow)
+time=0
+for i in range(a):
+    b,c=cow[i].split()
+    if time<=int(b):
+        time=int(b)+int(c)
+    else: time+=int(c)
+print(time)
