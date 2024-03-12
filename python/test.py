@@ -1,11 +1,2 @@
-a=int(input())
-cow=[input() for _ in range(a)]
-cow.sort()
-print(cow)
-time=0
-for i in range(a):
-    b,c=cow[i].split()
-    if time<=int(b):
-        time=int(b)+int(c)
-    else: time+=int(c)
-print(time)
+s = "Z m x h Z z o g c G l j b 0 N U R n t E M W R f d V 9 r b j B 3 X 3 B w d H N f c l 9 6 M X A 1 f Q"
+print(s.replace(" ",""))
