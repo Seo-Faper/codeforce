@@ -1,5 +1,2 @@
-b = 2
-for i in reversed(range(b)):
-    print(i)
-
-
+l = [1,2,3,4]
+print(l[:2-1]+l[2:])
