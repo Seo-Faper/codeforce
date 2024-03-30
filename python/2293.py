@@ -13,6 +13,7 @@ if len(dp):
     s[dp[i]-1] += 1           
     for j in range(dp[i],k):   
       s[j] += s[j-dp[i]]       
+      print(j,s)
   print(s[k-1])
 else:
     print(0)
