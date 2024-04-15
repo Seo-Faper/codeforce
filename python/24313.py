@@ -3,7 +3,6 @@ c = int(input())
 n = int(input())
 for i in range(n,101):
     if a1*i+a0 > c*i:
-
         print(0)
         break
     if i == 100:
