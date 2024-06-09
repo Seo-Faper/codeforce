@@ -1,14 +1,17 @@
-l = [2, 1, 1, 2, 3, 1, 2, 3, 1]	
-sk = []
-burger = "1231"
-ans = 0
-for i in l:
-    sk.append(i)
-    # print(sk,''.join(map(str,sk[-4:])), burger)
-    if len(sk)>=4 and ''.join(map(str,sk[-4:])) == burger:
-       ans +=1
-       sk.pop()
-       sk.pop()
-       sk.pop()
-       sk.pop()
-print(ans)
+import random
+from time import time
+
+random.seed(10000)
+
+
+s = ['e', 'l', 'h', 'l', 'o']
+l = [*range(len(s))]
+
+random.shuffle(l)
+print(s)
+print(l)
+d = [0]*len(s)
+for i, x in enumerate(l):
+    print(str(i)+" -> "+str(x))
+    d[x] = s[i]
+print(d)
