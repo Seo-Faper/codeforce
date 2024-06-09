@@ -1,17 +1,16 @@
-def count_characters(input_string):
-    char_frequency = {}
-    
-    for char in input_string:
-        if char in char_frequency:
-            char_frequency[char] += 1
-        else:
-            char_frequency[char] = 1
-            
-    return char_frequency
+import base64
 
-input_string = input("문자열을 입력하세요: ")
-result = count_characters(input_string)
+def decode_base64_50_times(encoded_str):
+    for _ in range(50):
+        encoded_str = base64.b64decode(encoded_str)
+    return encoded_str
 
-for char, frequency in result.items():
-    print(f"'{char}': {frequency}")
-input_string2 = input("비교할 문자열을 입력하세요. :")
+# 파일에서 문자열 읽기
+with open('./python/theflag', 'r') as file:
+    encoded_str = file.read().strip()  # 파일에서 문자열 읽기 및 공백 제거
+
+# 50번 디코딩
+decoded_str = decode_base64_50_times(encoded_str)
+
+# 결과 출력 (필요에 따라 출력 형식 조정 가능)
+print(decoded_str.decode('utf-8'))  # 바이너리를 utf-8 문자열로 디코딩
