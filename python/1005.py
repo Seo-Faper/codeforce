@@ -116,3 +116,5 @@ for i in range(T):
     solution()
 
 
+a = [1,2]
+a.pop();a.pop()
