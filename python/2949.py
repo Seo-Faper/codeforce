@@ -14,7 +14,6 @@ def rotate45(r,c,board):
 
     for i in range(r):
         line = board[i]
-        #print(line)
         for x in range(c):
             new_board[i+x][r+x-i] = line[x]
 
@@ -27,11 +26,11 @@ r,c = map(int, input().split(" "))
 board = []
 for i in range(r):
      board.append(list(input()))
-#print(board)
+
 k = int(input()) // 45
 for _ in range(k//2):
     r,c, board = rotate90(r,c,board)
-#print(board)
+
 if k % 2 == 0:
     for i in range(len(board)):
         print(''.join(board[i]))
