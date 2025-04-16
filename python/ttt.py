@@ -17,6 +17,7 @@ players = [
     "yahho2468",
     "oneorz3601"
 ]
+players = ['이현수','김동욱','다시']
 
 print("\n랜덤 룰렛 시작!\n")
 time.sleep(1)
