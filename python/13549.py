@@ -8,12 +8,12 @@ while queue:
     if x == k:
         print(vistited[x]-1)
         break
-    if x * 2 <= MAX and not vistited[x * 2]:
-        queue.append(x * 2)
-        vistited[x * 2] = vistited[x]
-    if x - 1 >= 0 and not vistited[x - 1]:
-        queue.append(x - 1)
-        vistited[x - 1] = vistited[x] + 1   
-    if x + 1 <= MAX and not vistited[x + 1]:
-        queue.append(x + 1)
-        vistited[x + 1] = vistited[x] + 1
+    if x * 2 <= MAX and not vistited[x * 2]: # x*2 is not visited
+        queue.append(x * 2) #   add x*2 to the queue
+        vistited[x * 2] = vistited[x] #  mark x*2 as visited
+    if x - 1 >= 0 and not vistited[x - 1]: # x-1 is not visited
+        queue.append(x - 1)     #   add x-1 to the queue
+        vistited[x - 1] = vistited[x] + 1       # mark x-1 as visited
+    if x + 1 <= MAX and not vistited[x + 1]:    # x+1 is not visited
+        queue.append(x + 1)   #   add x+1 to the queue  
+        vistited[x + 1] = vistited[x] + 1     # mark x+1 as visited
