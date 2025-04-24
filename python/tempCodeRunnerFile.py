@@ -1,2 +1,2 @@
 
-    for j in range(W):
+    else:
